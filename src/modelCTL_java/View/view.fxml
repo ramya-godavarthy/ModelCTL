@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "VirtualBox" xmlns:fx="http://javafx.com/fxml" fx:controller="modelCTL_java.View.ViewGUI">
+    <children>
+        <MenuBar fx:id="menuBar">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem id = "loadModel" text="Load Model" onAction = "#handleLoadModel"/>
+                        <MenuItem text="Close Model" onAction = "#handleCloseModel"/>
+
+                        <SeparatorMenuItem  />
+                        <MenuItem text="Exit" onAction="#handleExit"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Help">
+                        <MenuItem text="Usage" onAction = "#handleAboutUsage"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="About" onAction="#handleAboutAction"/>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane id="Pane">
+                <SplitPane fx:id="splitPane" orientation="vertical" focusTraversable="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <HBox id="hbox1" spacing = "50" alignment="center">
+                            <VBox id="vbox1">
+                                <Label id="state" text = "State"/>
+                                <ComboBox fx:id="tf1"/>
+                            </VBox>
+                            <VBox id="vbox2">
+                                <Label id="formula" text = "Formula"/>
+                                <TextField fx:id="tf2" />
+                            </VBox>
+                            <Button id="check" text = "Check" onAction="#handleCheck"/>
+                        </HBox>
+
+                        <SplitPane fx:id="sp" focusTraversable="true" >
+                            <VBox id="vbox3">
+                                <Label id="result" text = "Result"/>
+                                <TextArea fx:id="resultText" />
+                            </VBox>
+                            <VBox id="vbox4">
+                                <Label id="model" text = "Model"/>
+                                <TextArea fx:id="modelText"/>
+                            </VBox>
+                        </SplitPane>
+                </SplitPane>
+        </AnchorPane>
+    </children>
+</VBox>
